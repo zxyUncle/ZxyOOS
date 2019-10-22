@@ -8,13 +8,16 @@
 
 Gradle   
 -----   
-Step 1   
+
+    Step 1   
 	 allprojects {   
 		repositories {   
 			...
 			maven { url 'https://jitpack.io' }   
 		}   
-	}   
+	} 
+
+  
 
 Step 2. Add the dependency   
 
