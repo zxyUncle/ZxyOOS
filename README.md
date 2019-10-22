@@ -27,14 +27,6 @@ Step 2. Add the dependency
         OssUtils.instance.getFile()//下载
 
 ##示例
-     /**
-     * 上传文件
-     * @param bucketName String 服务器给的
-     * @param fileName String   文件在oss服务器上的路径+文件的名字+拓展名
-     * @param filePath String   文件在手机上的路径
-     * @param ossListener OssListener
-     */
-     fun putFile(bucketName: String, fileName: String, filePath: String, ossPutListener: OssPutListener) {
 
      /**
      * 初始化
@@ -43,7 +35,15 @@ Step 2. Add the dependency
      * @param stsServer String  "STS应用服务器地址，例如http://abc.com
      * @return OSSClient
      */
-    fun initOSS(mContext: Context, endpoint: String, stsServer: String): OSSClient {
+     fun initOSS(mContext: Context, endpoint: String, stsServer: String): OSSClient {
+    /**
+     * 上传文件
+     * @param bucketName String 服务器给的
+     * @param fileName String   文件在oss服务器上的路径+文件的名字+拓展名
+     * @param filePath String   文件在手机上的路径
+     * @param ossListener OssListener
+     */
+     fun putFile(bucketName: String, fileName: String, filePath: String, ossPutListener: OssPutListener) {
      /**
      * 下载文件
      * @param bucketName String  服务器给的
