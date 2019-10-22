@@ -57,13 +57,8 @@ class OssUtils private constructor() {
      * 回调接口
      */
     interface OssGetListener {
-        fun onOssSuccess(request: PutObjectRequest?, result: PutObjectResult?, fileName: String)
-        fun onOssFailure(
-            request: PutObjectRequest?,
-            clientException: ClientException?,
-            serviceException: ServiceException?
-        )
-
+        fun onOssSuccess(request: GetObjectRequest, result: GetObjectResult,filePath:String)
+        fun onOssFailure()
         //异步上传时可以设置进度回调
         fun onOssProgress(request: GetObjectRequest, currentSize: Long, totalSize: Long)
     }
@@ -155,6 +150,7 @@ class OssUtils private constructor() {
                     fileOutputStream.flush()
                 } catch (e: IOException) {
                     e.printStackTrace()
+                    ossGetListener.onOssFailure()
                 } finally {
                     if (inputStream != null) {
                         inputStream.close()
@@ -163,7 +159,7 @@ class OssUtils private constructor() {
                         fileOutputStream.close()
                     }
                 }
-
+                ossGetListener.onOssSuccess(request,result,filePath)
             }
 
             override fun onFailure(
@@ -179,6 +175,7 @@ class OssUtils private constructor() {
                     Log.e("RequestId", serviceException.requestId)
                     Log.e("HostId", serviceException.hostId)
                     Log.e("RawMessage", serviceException.rawMessage)
+                    ossGetListener.onOssFailure()
                 }
             }
         })
