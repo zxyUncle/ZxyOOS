@@ -6,27 +6,27 @@
 
 [![](https://jitpack.io/v/zxyUncle/ZxyOOS.svg)](https://jitpack.io/#zxyUncle/ZxyOOS)
 
-Gradle
------
-Step 1
-	 allprojects {
-		repositories {
+Gradle   
+-----   
+Step 1   
+	 allprojects {   
+		repositories {   
 			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
+			maven { url 'https://jitpack.io' }   
+		}   
+	}   
 
-Step 2. Add the dependency
+Step 2. Add the dependency   
 
-        implementation 'com.github.zxyUncle:ZxyOOS:Tag'
+        implementation 'com.github.zxyUncle:ZxyOOS:Tag'   
 
-## 使用
+## 使用   
 
-        OssUtils.instance.initOSS()//初始化
-        OssUtils.instance.putFile()//上传
-        OssUtils.instance.getFile()//下载
+        OssUtils.instance.initOSS()//初始化   
+        OssUtils.instance.putFile()//上传   
+        OssUtils.instance.getFile()//下载   
 
-##示例
+##示例   
 
      /**
      * 初始化
@@ -52,6 +52,6 @@ Step 2. Add the dependency
      */
     fun getFile(bucketName: String, filePath: String, ossGetListener: OssGetListener) {
 
-##更新1.0：
-1、上传下载文件
+##更新1.0：   
+1、上传下载文件   
  
